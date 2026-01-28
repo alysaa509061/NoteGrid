@@ -1,0 +1,69 @@
+# MatrixView - Expo Setup Instructions
+
+Follow these steps to ensure the app works as a functional Expo application:
+
+## 1) Edit package.json
+
+Remove the React 19 line and keep only this:
+
+"react": "18.2.0",
+
+So your dependencies should include:
+
+"react": "18.2.0",
+"react-dom": "18.2.0", 
+"react-native": "0.74.1"
+
+## 2) Clean install (important)
+
+From your project folder:
+
+**Mac/Linux:**
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
+**Windows:**
+```cmd
+rmdir /s /q node_modules
+del package-lock.json
+npm install
+```
+
+## 3) Run Expo
+
+Your script is "dev": "EXPO_NO_TELEMETRY=1 expo start"
+But safer to run:
+
+```bash
+npx expo start -c
+```
+
+OR if you want to use the script:
+
+```bash
+npm run dev
+```
+
+## Additional Notes
+
+- The `-c` flag clears the Metro cache, which helps prevent bundling issues
+- Make sure you have Expo CLI installed globally: `npm install -g @expo/cli`
+- Use Expo Go app on your phone to scan the QR code and test the app
+- For web testing, press 'w' in the terminal after starting Expo
+
+## Troubleshooting
+
+If you encounter Metro bundling errors:
+1. Stop the development server
+2. Clear Metro cache: `npx expo start -c`
+3. If issues persist, delete node_modules and reinstall dependencies
+
+## Project Structure
+
+This is a React Native Expo app with:
+- File-based routing using Expo Router
+- Tab navigation for main screens
+- Local storage for data persistence
+- Dark theme with custom color palette
